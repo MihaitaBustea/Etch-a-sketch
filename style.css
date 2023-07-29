@@ -1,20 +1,82 @@
+body{
+	background-color: antiquewhite;
+}
+
+.workspace{
+	margin-top: 160px;
+	padding: 0;
+	display: flex;
+	/* border: 2px solid red; */
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: stretch;
+	text-align: center;
+}
+
+.characteristics{
+	margin-top: 30px;
+	display:flex;
+	padding: 0;
+	gap: 10px;
+	flex-direction: column;
+	/* border: 1px solid orange; */
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 32px;
+	color: rgb(43, 39, 36);
+}
+
+.characteristics > label{
+	margin-top: 30px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 24px;
+	color: rgb(43, 39, 36);
+}
+
+#submit{
+	width: 120px;
+	height: 60px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 20px;
+	display: flex;
+	max-width: fit-content;
+	padding: 5px;
+	text-align: center;
+	align-self: center;
+	color: rgb(43, 39, 36);
+	border-radius: 6px;
+	background-color: white;
+}
+
+#grid-size{
+	width: 80px;
+	height: 30px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 20px;
+	display: flex;
+	max-width: fit-content;
+	padding: 0;
+	text-align: center;
+	align-self: center;
+	color: rgb(43, 39, 36);
+	border-radius: 6px;
+}
 
 #container {
-	position: relative;
-	top: 30px;
-	outline: 2px solid green;
+	background-color: white;
+	/* outline: 3px solid green; */
 	font-size: 0;
-	margin:auto;
+	margin:0;
 	height:640px;
 	width:640px;
 	padding: 0;
 	border: none;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .grid {
 	margin:0;
 	padding:0;
 	border:none;
-	outline:1px solid green;
+	/* outline:0.5px solid green; */
 	display:inline-block;
 }
