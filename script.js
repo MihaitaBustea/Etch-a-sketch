@@ -9,12 +9,11 @@ function createGrid(x){
             newDiv.className = "grid";
             newDiv.style.width = `${dimension}px`;
             newDiv.style.height = `${dimension}px`;
+            newDiv.addEventListener("mouseover",colorTheGrid);
             document.getElementById("container").append(newDiv);
         };
     };
 }
-
-createGrid(nrOfRows);
 
 function clearGrid(){
     var oldGrid = document.querySelectorAll(".grid");
@@ -33,5 +32,47 @@ function newGrid(){
     }
 }
 
-var newGridButton = document.getElementById("submit");
-newGridButton.addEventListener("click", newGrid);
+function generateNewGrid(){
+    var newGridButton = document.getElementById("submit");
+    newGridButton.addEventListener("click", newGrid);
+}
+
+
+var mode = "color";
+
+var modes = document.querySelector(".modes").children;
+for(i=0; i<=2; i++){
+    modes[i].addEventListener("click", function(event){
+        mode = event.target.textContent;
+    });
+}
+
+function colorTheGrid(e){
+    if(mode !== "Skittles mode" && mode !== "Eraser"){
+        e.target.style.backgroundColor = document.querySelector("#color-picker").value;
+    } else if(mode === "Skittles mode") {
+        const randomR = Math.floor(Math.random() * 256);
+        const randomG = Math.floor(Math.random() * 256);
+        const randomB = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    } else if(mode === "Eraser"){
+        e.target.style.backgroundColor = "#FFFFFF";
+    }
+
+}
+
+
+function cleanCanvas(){
+    clearGrid();
+    newGrid();
+}
+
+
+function etchASketch(){
+    createGrid(nrOfRows);
+    generateNewGrid();
+    var clearButton = document.querySelector(".clear");
+    clearButton.addEventListener("click", cleanCanvas);
+}
+
+etchASketch();
